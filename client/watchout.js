@@ -1,6 +1,6 @@
 // start slingin' some d3 here.
 
-var CurrentScore = 0;
+var currentScore = 0;
 var highScore = 0;
 var collisions = 0;
 
@@ -25,7 +25,11 @@ var step = function() {
         //.attr('src', function() { return 'asteroid.png'; })
         .attr('cy', function() { return Math.random() * 700; });
   circle.style('fill', 'green');
- 
+
+  currentScore++;
+d3.select('.current span')
+    .text(currentScore);
+  
   setTimeout(step, 1000);  
 };
 
@@ -60,9 +64,16 @@ var userStep = function() {
       collisions++;
       d3.select('.collisions span')
         .text(collisions);
+      if (highScore < currentScore) {
+        highScore = currentScore;
+        d3.select('.highscore span')
+          .text(highScore);
+ 
+      }
+      currentScore = 0;
     }
   });
-  setTimeout(userStep, 10);
+  setTimeout(userStep, 100);
 };
 
 step();
@@ -70,3 +81,4 @@ userStep();
 user.call(drag);
 
 // player or enemies should not move out of play area
+// start player in the corner 
