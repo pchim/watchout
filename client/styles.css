@@ -11,9 +11,35 @@ Feel free to use it if you like. */
   background-repeat: no-repeat;
 }
 .scoreboard {
-  background-color: grey;
+  background-color: black;
   width: 700px;
+  max-height: 100px;
+  float: left;
 }
 .hit {
-  opacity: 0.4;
+  opacity: 0.7;
+}
+
+.highscore {
+  margin-left: 10px;
+  color : white;
+  font-size: 20px;
+  float: left;
+  text-align: center;
+}
+
+.current {
+  margin-left: 120px;
+  font-size: 20px;
+  color: white;
+  float: left;
+  text-align: center;
+}
+
+.collisions {
+  margin-left: 200px;
+  float: left;
+    font-size: 20px;
+  color: white;
+  text-align: center;
 }
